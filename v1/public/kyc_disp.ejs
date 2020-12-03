@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<form action="/home/home" method="GET">
+		<button type="submit">Home</button>
+	</form>
+	<h1>KYC details</h1> 
+	<div> 
+		<div> 
+            <div>
+                <h2>
+                Name :- <%= image.firstName %> <%= image.middleName %> <%= image.lastName %> <br>
+                date of birth :- <%= image.DOB %> <br>
+                Primary address :- <%= image.Pri_Address %> <br>
+                city :- <%= image.City %>  State :- <%= image.State %> Country :- <%= image.Country %> <br>
+                secodary address :- <%= image.Seco_Address %> <br>
+                Email :- <%= image.Email %> <br>
+                contact number :- <%= image.Pri_contact %> , <%= image.Alt_Contact %> <br>
+                emergency contact number :- <%= image.Emer_Contact %>
+                </h2>
+            </div>
+			<div>
+                id proof <br>
+				<img src="data:image/<%=image.ID_proof.contentType%>;base64, 
+                    <%=image.ID_proof.data.toString('base64')%>" width="128" height="128""><br>
+                address proof <br>
+                <img src="data:image/<%=image.Address_Proof.contentType%>;base64, 
+                    <%=image.Address_Proof.data.toString('base64')%>" width="128" height="128"">  
+			</div> 
+		</div> 
+	</div> 
+</body> 
+
+</html> 

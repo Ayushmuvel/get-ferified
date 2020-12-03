@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<h1>Educational certificate</h1> 
+	certificate approval status is :- <%= status %> <br>
+	approved by :- <%= app_data.apprBy %> <br>
+	<div> 
+		<div> 
+            <div>
+                <h2>
+                course name is :- <%= image.course %> <br>
+                university name is :- <%= image.university %> <br>
+                collage name is :- <%= image.collage %> <br>
+                title is :- <%= image.Title %> <br>
+                Marks obtain are :- <%= image.Marks %> <br>
+                CGPA obtained :- <%= image.CGPA %> <br>
+                </h2>
+            </div>
+			<div> 
+				<img src="data:image/<%=image.certificateLink.contentType%>;base64, 
+                    <%=image.certificateLink.data.toString('base64')%>" width="128" height="128"">  
+			</div> 
+		</div> 
+	</div> 
+</body> 
+
+</html> 

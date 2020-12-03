@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+</head> 
+
+<body> 
+    <form action="/log_reg/complet_regis" method="POST">
+        <input type="text" name="userId" id="userId">
+        <input type="text" name="account_num" id="account_num">
+        <input type="text" name="account_priv_key" id="account_priv_key">
+        <button type="submit">submit</button>
+    </form>
+    <script>
+        if (window.localStorage.length != 0){
+            document.getElementById('userId').value = window.localStorage.getItem('userId')
+            document.getElementById('account_num').value = window.localStorage.getItem('account_num')
+            document.getElementById('account_priv_key').value = window.localStorage.getItem('account_priv_key')
+        }
+    </script>
+</body> 
+
+</html> 

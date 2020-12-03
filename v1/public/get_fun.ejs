@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body>
+    <h1>your account details</h1> 
+    your ID is <%= userId %>
+    your account number is <%= account_num %> <br>
+    your account private key is <%= account_priv_key %> <br>
+    your account balance is <%= account_bal %> <br>
+    
+    <div id="get_balance">
+        To access more feature you neet fund. <br>
+        To get fund in your account fellow this steps : <br>
+        1) Copy account address <br>
+        2) Go to <a href="https://faucet.ropsten.be/" target="_blank">Click</a> <br>
+        3) Pest address and click on send me test ether  <br>
+        4) come back and relaod the page  <br>
+    </div>
+
+    <div id="next_step">
+        complete Registration by clicking <a href="/log_reg/log_reg/complet_regis">here</a>
+    </div>
+
+    <script>
+        bal = '<%= account_bal %>'
+
+        if(bal != 0){
+            document.getElementById("get_balance").style.display = "none"
+        }
+
+        var bSupportsLocal = (('localStorage' in window) && window['localStorage'] != null);
+        if(!bSupportsLocal){
+            console.log('local storage error')
+        }else{
+
+            window.localStorage.clear()
+            window.localStorage.setItem('userId','<%= userId %>')
+            window.localStorage.setItem('account_num','<%= account_num %>')
+            window.localStorage.setItem('account_priv_key','<%= account_priv_key %>')
+            
+        }
+
+
+    </script>
+	
+</body> 
+
+</html> 

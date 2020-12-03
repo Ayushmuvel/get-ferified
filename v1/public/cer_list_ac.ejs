@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<a href = '/home/office'>home</a>
+	<h1>certificate list</h1> 
+	<div> 
+        <table>
+            <tr>
+                <th>approval Id no</th>
+                <th>Type</th>
+                <th>Get Detail</th>
+                <th>Approve</th>
+                <th>Reject</th>
+            </tr>
+            <% items.forEach(function(image) { %>
+                <tr>
+                    <td><%= image._id %></td>
+                    <td><%= image._type %></td>
+                    <th><form action="/off/check_cer" method="post"><button name ="_id" value="<%= image._id %>">Detail</button></form></th>
+                    <form action="/off/cer_app" method="post">
+                    <th><button name="app" value="<%= image._id %>">Click</button></th>
+                    <th><button name="rej" value="<%= image._id %>">Click</button></th>
+                    </form>
+                </tr>
+            <% }) %> 
+        </table> 
+	</div> 
+</body> 
+
+</html> 

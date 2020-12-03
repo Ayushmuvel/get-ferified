@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<a href = '/home/office'>home</a>
+	<h1>Deactivate account list</h1> 
+	<div>
+        <form action="/off/Ac_ac" method="post"> 
+        <table>
+            <tr>
+                <th>Account number</th>
+                <th>Email</th>
+                <th>Activate</th>
+            </tr>
+            <% items.forEach(function(image) { %>
+                <tr>
+                    <td><%= image.acc_no %></td>
+                    <td><%= image.email %></td>
+                    <td><button type="submit" id="ac_no" name="acc_no" value="<%= image._id %>">Activate</button></td>
+                </tr>
+            <% }) %> 
+        </table> 
+        </form>
+	</div> 
+</body> 
+
+</html> 

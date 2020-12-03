@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>home</title>
+  </head>
+  <body>
+        <div>
+          <form action="/log_reg/LogOut" method="GET"><button type="submit">Logout</button></form>
+            your account number is  <%= account %><br>
+            your account status is <%= status %><br>
+            <form action="/KYC/display">
+              your kyc no is <button id="KYC" name = "fin_id" value="<%= kyc %>"><%= kyc %></button>
+            </form>
+            your education certificate number are <div id = 'edu_cer'></div><br>
+            your workexperience certificate are <div id = 'work_exp'></div><br>
+            your certificates are <div id = 'cer'></div><br>
+            your projects are <div id = 'proj'></div> <br>
+            your skills are <div id = 'skill'></div> <br>
+
+            <div id ="add_kyc">
+              // add KYC
+              <form  action='/KYC/set' method="POST" enctype="multipart/form-data" >
+                <input type = 'text' name ='first_Name' placeholder = "first_Name" required />
+                <input type = 'text' name ='middle_Name' placeholder = "middle_Name" >
+                <input type = 'text' name ='last_Name' placeholder = "last_Name" required />
+                <input type = 'date' name ='Date_OB' placeholder = "Date_OB" required />
+                <input type = 'text' name ='country' placeholder = "country" required />
+                <input type = 'text' name ='state' placeholder = "state" required />
+                <input type = 'text' name ='city' placeholder = "city" required />
+                <input type = 'text' name ='primary_addr' placeholder = "primary_addr" required />
+                <input type = 'text' name ='sec_addr' placeholder = "sec_addr" required />
+                <input type = 'text' name ='Email' placeholder = "Email" required />
+                <input type = 'text' name ='pri_cont' placeholder = "pri_cont" required />
+                <input type = 'text' name ='sec_cont' placeholder = "sec_cont" required />
+                <input type = 'text' name ='emer_cont' placeholder = "emer_cont" required />
+                <input type="file" id="image" name="image" value="" required  />
+                <input type="file" id="image" name="image" value="" required /> <br>
+                private key <input type="text" name="account_priv_key_6" id="account_priv_key_6">
+                <button type = 'submit'> save </button>
+              </form>
+            </div>
+            <div id="active_check">
+            <form  action='/cer/edu/set' method="POST" enctype="multipart/form-data" >
+              // education certificate<br>
+              <input type = 'text' name ='course' placeholder = "course" required />
+              <input type = 'text' name ='university' placeholder = "university" >
+              <input type = 'text' name ='collage' placeholder = "collage" required />
+              <input type = 'text' name ='Title' placeholder = "Title" required />
+              <input type = 'text' name ='Marks' placeholder = "msrks" required />
+              <input type = 'text' name ='cgpa' placeholder = "cgpa" required />
+              <input type="file" id="image" name="image" value="" required  /> <br>
+              private key <input type="text" name="account_priv_key" id="account_priv_key">
+              <button type = 'submit'> save </button>
+            </form>
+            <form  action='/cer/work/set' method="POST" enctype="multipart/form-data" >
+              // work experiance <br>
+              <input type = 'text' name ='letter' placeholder = "letter" required />
+              <input type = 'text' name ='company_name' placeholder = "company_name" >
+              <input type = 'text' name ='Issue_By' placeholder = "Issue_By" required />
+              <input type = 'date' name ='Issue_Date' placeholder = "Issue_Date" required />
+              <input type="file" id="image" name="image" value="" required  /><br>
+              private key <input type="text" name="account_priv_key_1" id="account_priv_key_1">
+              <button type = 'submit'> save </button>
+            </form>
+            <form  action='/cer/cer/set' method="POST" enctype="multipart/form-data" >
+            // certificates <br>
+            <input type = 'text' name ='certificate' placeholder = "certificate" required />
+            <input type = 'text' name ='Orginization_name' placeholder = "Orginization_name" >
+            <input type = 'text' name ='Issue_By' placeholder = "Issue_By" required />
+            <input type = 'date' name ='Issue_date' placeholder = "Issue_date" required />
+            <input type="file" id="image" name="image" value="" required  /><br>
+            private key <input type="text" name="account_priv_key_2" id="account_priv_key_2">
+            <button type = 'submit'> save </button>
+            </form>
+            <form  action='/cer/proj/set' method="POST" enctype="multipart/form-data" >
+              // projects <br>
+              <input type = 'text' name ='Proj_Name' placeholder = "Project Name" required />
+              <input type = 'text' name ='company_name' placeholder = "company_name" >
+              <input type = 'text' name ='Pro_disc' placeholder = "Pro_disc" required />
+              <input type = 'date' name ='Start_date' placeholder = "Start_date" required />
+              <input type = 'date' name ='End_Date' placeholder = "End_Date" required /> <br>
+              private key <input type="text" name="account_priv_key_3" id="account_priv_key_3">
+              <button type = 'submit'> save </button>
+            </form>
+            <form  action='/cer/skill/set' method="POST" enctype="multipart/form-data" >
+              // skill <br>
+              <input type = 'text' name ='Skill_type' placeholder = "Skill Name" required />
+              <input type = 'text' name ='Skill_name' placeholder = "Skill_name" ><br>
+              <input type = 'text' name ='certificate_link' placeholder = "certificate_link" required />
+              private key <input type="text" name="account_priv_key_4" id="account_priv_key_4">
+              <button type = 'submit'> save </button>
+            </form>
+            <form action="/log_reg/de_acc"> deactivate account <br>
+              private key <input type="text" name="account_priv_key_5" id="account_priv_key_5"> 
+              <button type="submit">Press</button></form>
+            </div>
+            <br><br>
+            <script>
+              if (window.localStorage.length != 0){
+                  document.getElementById('account_priv_key').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_1').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_2').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_3').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_4').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_5').value = window.localStorage.getItem('account_priv_key')
+                  document.getElementById('account_priv_key_6').value = window.localStorage.getItem('account_priv_key')
+              }
+          </script>
+            <script>
+              if ('<%= kyc %>'){
+                document.getElementById("add_kyc").style.display = "none"; 
+              }else{
+                document.getElementById("KYC").style.display = "none";
+              }
+              if (!'<%= eduQuaification %>'){
+                document.getElementById("edu_cer").style.display = "none";
+              }
+              if (!'<%= workExp %>'){
+                document.getElementById("work_exp").style.display = "none";
+              }
+              if (!'<%= certficate %>'){
+                document.getElementById("cer").style.display = "none";
+              }
+              if (!'<%= project %>'){
+                document.getElementById("proj").style.display = "none";
+              }
+              if (!'<%= skill %>'){
+                document.getElementById("skill").style.display = "none";
+              }
+              if ('<%= status %>' != 'active'){
+                document.getElementById("active_check").style.display = "none";
+                document.getElementById("add_kyc").style.display = "none";
+              }
+            </script>
+            <script>
+              let x ='<form action="/cer/edu/display" method="get">'
+              var list = '<%= eduQuaification %>'
+              list = list.split(',')
+              for(i=0;i<list.length;i++){
+                x = x +'<button type="submit" id = "_id" name = "fin_id" value ="'+list[i]+'">'+list[i]+'</button><br>'
+              }
+              x = x+ ' </form>'
+              document.getElementById("edu_cer").innerHTML = x
+            </script>
+            <script>
+              let x_1 ='<form action="/cer/work/dipslay" method="get">'
+              var list_1 = '<%= workExp %>'
+              list_1 = list_1.split(',')
+              for(i=0;i<list_1.length;i++){
+                x_1 = x_1 +'<button type="submit" id = "_id" name = "fin_id" value ="'+list_1[i]+'">'+list_1[i]+'</button><br>'
+              }
+              x_1 = x_1+ ' </form>'
+              document.getElementById("work_exp").innerHTML = x_1
+            </script>
+            <script>
+              let x_2 ='<form action="/cer/org_cer/dipslay" method="get">'
+              let list_2 = '<%= certficate %>'
+              list_2 = list_2.split(',')
+              for(i=0;i<list_2.length;i++){
+                x_2 = x_2 +'<button type="submit" id = "_id" name = "fin_id" value ="'+list_2[i]+'">'+list_2[i]+'</button><br>'
+              }
+              x_2 = x_2+ ' </form>'
+              document.getElementById("cer").innerHTML = x_2
+            </script>
+            <script>
+              let x_3 ='<form action="/cer/proj/display" method="get">'
+              let list_3 = '<%= project %>'
+              list_3 = list_3.split(',')
+              for(i=0;i<list_3.length;i++){
+                x_3 = x_3 +'<button type="submit" id = "_id" name = "fin_id" value ="'+list_3[i]+'">'+list_3[i]+'</button><br>'
+              }
+              x_3 = x_3+ ' </form>'
+              document.getElementById("proj").innerHTML = x_3
+            </script>
+            <script>
+              let x_4 ='<form action="/cer/skill/display" method="get">'
+              let list_4 = '<%= skill %>'
+              list_4 = list_4.split(',')
+              for(i=0;i<list_4.length;i++){
+                x_4 = x_4 +'<button type="submit" id = "_id" name = "fin_id" value ="'+list_4[i]+'">'+list_4[i]+'</button><br>'
+              }
+              x_4 = x_4+ ' </form>'
+              document.getElementById("skill").innerHTML = x_4
+            </script>
+        </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

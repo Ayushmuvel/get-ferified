@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<h1>orginization certificate</h1> 
+	certificate approval status is :- <%= status %> <br>
+	approved by :- <%= app_data.apprBy %> <br>
+	<div> 
+		<div> 
+            <div>
+                <h2>
+                certificate of :- <%= image.certificate %> <br>
+                orginization name :- <%= image.Orginization_name %> <br>
+                issued by :- <%= image.Issue_By %> <br>
+                issued on :- <%= image.Issue_date %> <br>
+                </h2>
+            </div>
+			<div> 
+				<img src="data:image/<%=image.cer_img.contentType%>;base64, 
+                    <%=image.cer_img.data.toString('base64')%>" width="128" height="128"">  
+			</div> 
+		</div> 
+	</div> 
+</body> 
+
+</html> 

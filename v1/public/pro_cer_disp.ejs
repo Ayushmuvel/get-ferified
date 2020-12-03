@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Image Uploading</title> 
+</head> 
+
+<body> 
+	<form action="/home/home" method="GET">
+		<button type="submit">Home</button>
+	</form>
+	<h1>Project Details</h1> 
+	<div> 
+		<div> 
+            <div>
+                <h2>
+					project name :- <%= image.Proj_Name %> <br>
+					company name :- <%= image.company_name %><br>
+					project discription :- <%= image.Pro_disc %><br>
+					stating date of project :- <%= image.Start_date %><br>
+					End date of project :- <%= image.End_Date %><br>
+                </h2>
+            </div>
+		</div> 
+	</div> 
+</body> 
+
+</html> 
